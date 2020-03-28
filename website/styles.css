@@ -1,0 +1,16 @@
+/* Specific styles for this website that are not from bootstrap */
+
+.flashCards {
+	display: grid;
+	grid-template-columns: 100px, 50px, 100px;
+	grid-gap: 10px;
+	background-color: #fff;
+}
+
+.box {
+	background-color: #2C3E50;
+	color:#FBFCFC;
+	border-radius: 5px;
+	padding: 20px;
+	font-size: 150%;
+}

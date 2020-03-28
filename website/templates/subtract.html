@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<center>
+	<h1>Addition Flash Cards:</h1>
+	<br/>
+	{% if myAnswer %}
+	<div class="alert alert-{{ color }} alert-dismissible fade show" role="alert">
+	  {{ myAnswer }}
+	  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+	    <span aria-hidden="true">&times;</span>
+	  </button>
+	</div>
+	{% endif %}
+	<br/><br/>
+	<div class="container">
+		<div class="container">
+			<div class="container">
+				<div class="container">
+					<div class="container">
+						<div class="container">
+							<div class="container">
+								<div class="container">
+									<div class="row">
+										<div class="card" style="width: 18rem;">
+											 <div class="card-body">
+											   <h1 class="card-title">{{ numOne}}</h1>
+											 </div>
+										</div>
+										<div class="card" style="width: 9rem;">
+											 <div class="card-body">
+											   <h1 class="card-title">-</h1>
+											 </div>
+										</div>
+										<div class="card" style="width: 18rem;">
+											 <div class="card-body">
+											   <h1 class="card-title">{{ numTwo}}</h1>
+											 </div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br/><br/>
+	<form action="{% url 'subtract' %}" method="POST">
+		{% csrf_token %}
+	  <div class="form-group">
+	    <input type="text" class="form-control" placeholder="Type Your Answer Here" name="answer">
+	    <input type="hidden" name="oldNumOne" value="{{ numOne }}">
+	    <input type="hidden" name="oldNumTwo" value="{{ numTwo }}">
+	  </div>
+	  <br/>
+	  <button type="submit" class="btn btn-dark">Submit</button>
+	</form>
+</center>
+{% endblock %}
